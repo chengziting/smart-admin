@@ -96,12 +96,13 @@
 
   const emit = defineEmits(['update:value', 'change']);
   function onChange(value) {
-    let selected = [];
+    
     if (!value) {
-      emit('update:value', selected);
-      emit('change', selected);
-      return selected;
+      emit('update:value', value);
+      emit('change', value);
+      return value;
     }
+    let selected = [];
     if (Array.isArray(props.value)) {
       let valueList = dictValueList.value.filter((e) => value.includes(e.valueCode));
       valueList = valueList.map((e) => e.valueCode);
